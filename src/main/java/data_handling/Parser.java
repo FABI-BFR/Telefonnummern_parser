@@ -59,7 +59,7 @@ public class Parser {
         if (matcher.find()) {
             String extension = matcher.group();
             String ret = extension.replace("-","");
-            if(ret.length()<=3) {
+            if(ret.length()<=2) {
                 return ret;
             }else {
                 return "";
