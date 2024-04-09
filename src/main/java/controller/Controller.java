@@ -31,7 +31,9 @@ public class Controller {
         this.formatter = new Formatter();
     }
 
-
+    /**
+     * Displays the console menu
+     */
     public void openMenu() {
 
         boolean exit = false;
@@ -54,6 +56,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Reads the phonenumber put in => parses and saves it.
+     */
     private void saveNumber() {
         System.out.println("Bitte geben Sie eine Telefonnummer ein:");
         String input = scanner.nextLine();
@@ -67,6 +72,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Retrieves all saved phonenumbers
+     */
     private void getNumbers() {
         List<PhoneNumber> numbers = this.reader.getAllNumbers();
         for (PhoneNumber number : numbers) {

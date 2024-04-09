@@ -2,7 +2,7 @@ package controller;
 /**
  * The Main class is responsible for the start of the application.
  *
- * @author fe
+ * @author Fabian Eilber
  * @version 1.0
  */
 public class Main {

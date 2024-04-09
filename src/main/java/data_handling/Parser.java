@@ -17,6 +17,12 @@ import java.util.regex.Pattern;
 
 public class Parser {
 
+    /**
+     * Extracting parts of the given phonenumber
+     *
+     * @param input phone number as string
+     * @return PhoneNumber Object containing each part of the phonenumber
+     */
     public PhoneNumber parseStringToPhoneNumberEx(String input) {
 
         String original = input;
@@ -52,7 +58,12 @@ public class Parser {
         return new PhoneNumber(original, countryShort, countryCode, areaCode, number, extensionCode);
     }
 
-
+    /**
+     * Extracts the extension of the phonenumber
+     *
+     * @param input phone number as string
+     * @return extension or empty string depending on whether or not there is a extension
+     */
     public String getExtension (String input) {
         Pattern pattern = Pattern.compile("-\\d{1,3}");
         Matcher matcher = pattern.matcher(input);
@@ -69,6 +80,12 @@ public class Parser {
         }
     }
 
+    /**
+     * Removes the extension part from the phonenumber
+     *
+     * @param input phone number as string
+     * @return cleared phonenumber
+     */
     public String removeExtension (String input) {
         String pattern = "-\\d{1,3}";
         String cleanedPhoneNumber = input.replaceAll(pattern, "");

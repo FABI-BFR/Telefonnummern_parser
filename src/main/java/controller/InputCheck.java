@@ -12,6 +12,12 @@ import com.google.i18n.phonenumbers.Phonenumber;
  */
 public class InputCheck {
 
+    /**
+     * Validates the given phonenumber
+     *
+     * @param input phone number as string
+     * @return boolean (true or false) depending on the validation.
+     */
     public boolean isValidPhoneNumber(String input) {
 
         PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
