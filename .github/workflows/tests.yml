@@ -1,0 +1,17 @@
+name: Run tests
+
+on:
+  push:
+    branches:
+      - 'master'
+    pull_request:
+      branches:
+        - 'master'
+
+jobs:
+  tests:
+    run-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: echo "Hello World"
