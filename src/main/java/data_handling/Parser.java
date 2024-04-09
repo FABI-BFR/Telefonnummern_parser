@@ -7,6 +7,13 @@ import data.PhoneNumber;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * The Parser class is responsible for the parsing of a phonenumber.
+ * <p>
+ * @version 1.0
+ * @author Fabian Eilber
+ */
+
 public class Parser {
 
     public PhoneNumber parseStringToPhonenumber(String input) {

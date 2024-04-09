@@ -1,7 +1,10 @@
 package data;
 
 /**
- * Telefonnummer
+ * The Phonenumber class is responsible for the representation of the phonenumber as a datastructure.
+ * <p>
+ * @version 1.0
+ * @author Fabian Unger
  */
 public class PhoneNumber {
 

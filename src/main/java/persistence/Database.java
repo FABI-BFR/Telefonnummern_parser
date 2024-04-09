@@ -7,6 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The Database class represents the storage.
+ * <p>
+ * @version 1.0
+ * @author Fabian Unger
+ */
+
 public class Database implements ReadService, WriteService {
 
     private Map<Integer, PhoneNumber> list = new HashMap();

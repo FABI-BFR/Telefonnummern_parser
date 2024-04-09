@@ -1,17 +1,6 @@
 package controller;
-
-import data.PhoneNumber;
-import data_handling.Formatter;
-import data_handling.Parser;
-import persistence.Database;
-import persistence.ReadService;
-import persistence.WriteService;
-
-import java.util.List;
-import java.util.Scanner;
-
 /**
- * Controller nimmt eingabe entgegen und sorgt für die weitere Verarbeitung.
+ * The Main class is responsible for the start of the application.
  *
  * @author fe
  * @version 1.0
