@@ -11,11 +11,16 @@ public class InputCheck {
             return false;
         }
 
-        String cleanInput = input.replace(" ","");
+        String regex = "^\\+?[0-9\\-\\s()]*$";
 
-        if(cleanInput.length()<20 && cleanInput.length()>10){
-            return !cleanInput.matches(".*[a-zA-Z]*.");
+        if(input.length()<20 && input.length()>10){
+            if(input.matches(regex))
+            {
+                return true;
+            }
+            return false;
+        }else {
+            return false;
         }
-        return true;
     }
 }

@@ -14,7 +14,7 @@ public class Main {
         String input = scanner.nextLine();
 
         InputCheck inputCheck = new InputCheck();
-        if(!inputCheck.isValidPhoneNumber(input)){
+        if(inputCheck.isValidPhoneNumber(input)){
             System.out.println(input);
         }
 
