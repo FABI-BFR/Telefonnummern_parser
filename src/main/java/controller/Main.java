@@ -1,7 +1,6 @@
 package controller;
 
 import data.PhoneNumber;
-import data_handling.GParser;
 import data_handling.Parser;
 
 import java.util.Scanner;

@@ -54,6 +54,7 @@ public class Parser {
             countryShort = country;
 
         } catch (Exception e) {
+
             System.err.println("NumberParseException: " + e.toString());
         }
         return new PhoneNumber(original, countryShort, countryCode, areaCode, number, extensionCode);
