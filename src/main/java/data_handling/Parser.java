@@ -65,7 +65,7 @@ public class Parser {
     }
 
     public String removeExtension (String input) {
-        String pattern = "-\\d{3}";
+        String pattern = "-\\d{1,3}";
         String cleanedPhoneNumber = input.replaceAll(pattern, "");
         return cleanedPhoneNumber;
     }
