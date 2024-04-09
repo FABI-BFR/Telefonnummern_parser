@@ -1,18 +1,25 @@
-name: Hello World
+name: Run Tests
 
 on:
   push:
     branches:
       - 'master'
-    pull_request:
-      branches:
-        - 'master'
+  pull_request:
+    branches:
+      - 'master'
 
 jobs:
-  hello:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Hello Step
-        run: echo "Hello World"
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: 18
+
+      - name: Build with Maven
+        run: mvn -B clean test --file pom.xml
