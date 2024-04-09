@@ -1,5 +1,9 @@
 package controller;
 
+import com.google.i18n.phonenumbers.NumberParseException;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.Phonenumber;
+
 /**
  * The InputCheck class is checking the input before it is further processed.
  *
@@ -9,7 +13,16 @@ package controller;
 public class InputCheck {
 
     public boolean isValidPhoneNumber(String input) {
-        if (input == null || input.isEmpty()) {
+
+        PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
+        try {
+            Phonenumber.PhoneNumber parsedNumber = phoneNumberUtil.parse(input, null);
+            return phoneNumberUtil.isValidNumber(parsedNumber);
+        } catch (NumberParseException e) {
+            return false;
+        }
+
+        /*if (input == null || input.isEmpty()) {
             return false;
         }
 
@@ -22,6 +35,6 @@ public class InputCheck {
             return false;
         } else {
             return false;
-        }
+        }*/
     }
 }
