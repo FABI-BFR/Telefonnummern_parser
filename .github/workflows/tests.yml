@@ -1,4 +1,4 @@
-name: Run tests
+name: Hello World
 
 on:
   push:
@@ -9,9 +9,10 @@ on:
         - 'master'
 
 jobs:
-  tests:
+  hello:
     run-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Hello Step
         uses: echo "Hello World"
+
