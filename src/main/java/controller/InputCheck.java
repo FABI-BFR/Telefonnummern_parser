@@ -11,7 +11,7 @@ public class InputCheck {
             return false;
         }
 
-        String regex = "^\\+?[0-9\\-\\s()]*$";
+        String regex = "^\\+?[0-9\\-\\s()\\[\\]\\/]*$";
 
         if(input.length()<20 && input.length()>10){
             if(input.matches(regex))
