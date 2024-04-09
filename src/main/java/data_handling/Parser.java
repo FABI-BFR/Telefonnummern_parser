@@ -1,5 +1,7 @@
 package data_handling;
 
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.Phonenumber;
 import data.PhoneNumber;
 
 import java.util.regex.Matcher;
@@ -13,7 +15,6 @@ public class Parser {
 
         String normalizedNumber = input.replaceAll("[^\\d+]", "");
         String regex = "^(\\+?\\d{1,2})?(\\d{3,4})?(\\d{6,7})(\\d{2,})?$";
-
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(normalizedNumber);
 
@@ -29,8 +30,33 @@ public class Parser {
             extensionCode = matcher.group(4);
         }
 
-        PhoneNumber phoneNumber = new PhoneNumber(original, countryCode, areaCode, number, extensionCode);
-        return phoneNumber;
+        return new PhoneNumber(original, "", countryCode, areaCode, number, extensionCode);
+    }
+
+    public PhoneNumber parseStringToPhoneNumberEx(String input) {
+
+        String original = input;
+        String countryCode = "0049";
+        String areaCode = "";
+        String number = "";
+        String extensionCode = "";
+        String countryShort = "";
+
+        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+        try {
+            Phonenumber.PhoneNumber numberProto = phoneUtil.parse(input, "");
+            countryCode = String.valueOf(numberProto.getCountryCode());
+            areaCode = phoneUtil.getNationalSignificantNumber(numberProto);
+            number = String.valueOf(numberProto.getNationalNumber());
+            extensionCode = String.valueOf(numberProto.getExtension());
+
+            String country = phoneUtil.getRegionCodeForNumber(numberProto);
+            countryShort = country;
+
+        } catch (Exception e) {
+            System.err.println("NumberParseException: " + e.toString());
+        }
+        return new PhoneNumber(original, countryShort, countryCode, areaCode, number, extensionCode);
     }
 
 }

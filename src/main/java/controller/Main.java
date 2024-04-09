@@ -1,6 +1,7 @@
 package controller;
 
 import data.PhoneNumber;
+import data_handling.GParser;
 import data_handling.Parser;
 
 import java.util.Scanner;
@@ -19,7 +20,7 @@ public class Main {
         InputCheck inputCheck = new InputCheck();
         if(inputCheck.isValidPhoneNumber(input)){
             Parser parser = new Parser();
-            PhoneNumber number = parser.parseStringToPhonenumber(input);
+            PhoneNumber number = parser.parseStringToPhoneNumberEx(input);
             System.out.println(number.toString());
         }
 
