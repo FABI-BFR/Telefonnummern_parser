@@ -10,6 +10,13 @@ import persistence.WriteService;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The Controller class is responsible for the representation of the menu and the start of the following procedures.
+ * <p>
+ * @version 1.0
+ * @author Fabian Unger
+ */
+
 public class Controller {
 
     private final Scanner scanner = new Scanner(System.in);

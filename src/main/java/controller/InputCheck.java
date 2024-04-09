@@ -1,9 +1,9 @@
 package controller;
 
 /**
- * InputCheck prüft die Eingabe auf Korrektheit
+ * The InputCheck class is checking the input before it is further processed.
  *
- * @author fe
+ * @author Fabian Eilber
  * @version 1.0
  */
 public class InputCheck {
