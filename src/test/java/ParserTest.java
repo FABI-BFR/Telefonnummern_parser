@@ -5,6 +5,13 @@ import static org.junit.Assert.*;
 
 public class ParserTest {
 
+    /**
+     * @verantwortlicher Fabian Eilber
+     * @ziel Test der Funktionalität der Funktion parseStringtoPhoneNumberEx in der Klasse Parser
+     * @input Individuelle Telefonnummer
+     * @output Telefonnummer in Einzelteile zerlegt
+     * @überprüfung Gleichheit von input und erwartetem Ergebnis
+     */
     @Test
     public void parseStringToPhoneNumberValid() {
         Parser parser = new Parser();
@@ -21,6 +28,14 @@ public class ParserTest {
         assertEquals("33", phoneNumber.getExtensionCode()); // Assuming no extension in this case
     }
 
+
+    /**
+     * @verantwortlicher Fabian Eilber
+     * @ziel Test der Funktionalität der Funktion parseStringtoPhoneNumberEx in der Klasse Parser
+     * @input Falsche bzw. keine Telefonnummer
+     * @output Telefonnummer in Einzelteile zerlegt
+     * @überprüfung Gleichheit von input und erwartetem Ergebnis
+     */
     @Test
     public void parseStringToPhoneNumberInvalid() {
         Parser parser = new Parser();
@@ -37,6 +52,13 @@ public class ParserTest {
         assertEquals("", phoneNumber.getExtensionCode());
     }
 
+    /**
+     * @verantwortlicher Fabian Eilber
+     * @ziel Test der Funktionalität der Funktion getExtension in der Klasse Parser
+     * @input Individuelle Telefonnummer
+     * @output Extension / Durchwahl
+     * @überprüfung Gleichheit von input und erwartetem Ergebnis
+     */
     @Test
     public void getExtensionTestValid() {
         Parser parser = new Parser();
@@ -48,6 +70,13 @@ public class ParserTest {
         assertEquals("33", extension);
     }
 
+    /**
+     * @verantwortlicher Fabian Eilber
+     * @ziel Test der Funktionalität der Funktion getExtension in der Klasse Parser
+     * @input Individuelle Telefonnummer mit zu langer Durchwahl
+     * @output Extension / Durchwahl
+     * @überprüfung Gleichheit von input und erwartetem Ergebnis
+     */
     @Test
     public void getExtensionTestInvalid() {
         Parser parser = new Parser();

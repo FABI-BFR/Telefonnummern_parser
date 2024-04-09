@@ -4,6 +4,13 @@ import static org.junit.Assert.*;
 
 public class InputCheckTest {
 
+    /**
+     * @verantwortlicher Fabian Eilber
+     * @ziel Test der Funktionalität der InputCheck Klasse
+     * @input Individuelle Telefonnummer
+     * @output Validierung ob Telefonnummer korrekt ist in Form eines boolean
+     * @überprüfung Gleichheit von output und erwartetem Ergebnis
+     */
     @Test
     public void inputCheckValidNumber() {
         InputCheck inputCheck = new InputCheck();
@@ -14,6 +21,13 @@ public class InputCheckTest {
         assertTrue(result);
     }
 
+    /**
+     * @verantwortlicher Fabian Eilber
+     * @ziel Test der Funktionalität der InputCheck Klasse
+     * @input Falsche bzw. keine Telefonnummer
+     * @output Validierung ob Telefonnummer korrekt ist in Form eines boolean
+     * @überprüfung Gleichheit von output und erwartetem Ergebnis
+     */
     @Test
     public void inputCheckInvalidNumber() {
         InputCheck inputCheck = new InputCheck();
