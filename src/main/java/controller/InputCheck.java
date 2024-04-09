@@ -21,20 +21,5 @@ public class InputCheck {
         } catch (NumberParseException e) {
             return false;
         }
-
-        /*if (input == null || input.isEmpty()) {
-            return false;
-        }
-
-        String regex = "^\\+?[0-9\\-\\s()\\[\\]\\/]*$";
-
-        if (input.length() < 20 && input.length() > 10) {
-            if (input.matches(regex)) {
-                return true;
-            }
-            return false;
-        } else {
-            return false;
-        }*/
     }
 }
