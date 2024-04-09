@@ -46,12 +46,18 @@ public class Parser {
         try {
             Phonenumber.PhoneNumber numberProto = phoneUtil.parse(input, "DE");
             countryCode = String.valueOf(numberProto.getCountryCode());
-            areaCode = phoneUtil.getNationalSignificantNumber(numberProto);
-            number = String.valueOf(numberProto.getNationalNumber());
-            extensionCode = String.valueOf(numberProto.getExtension());
+            String nationalSignificantNumber = phoneUtil.getNationalSignificantNumber(numberProto);
+            int areaCodeLength = phoneUtil.getLengthOfGeographicalAreaCode(numberProto);
 
-            String country = phoneUtil.getRegionCodeForNumber(numberProto);
-            countryShort = country;
+            if (areaCodeLength > 0) {
+                areaCode = nationalSignificantNumber.substring(0, areaCodeLength);
+                number = nationalSignificantNumber.substring(areaCodeLength);
+            } else {
+                number = nationalSignificantNumber;
+            }
+
+            extensionCode = numberProto.hasExtension() ? numberProto.getExtension() : "";
+            countryShort = phoneUtil.getRegionCodeForNumber(numberProto);
 
         } catch (Exception e) {
             System.err.println("NumberParseException: " + e.toString());
