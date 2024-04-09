@@ -1,8 +1,13 @@
 package controller;
 
 import data.PhoneNumber;
+import data_handling.Formatter;
 import data_handling.Parser;
+import persistence.Database;
+import persistence.ReadService;
+import persistence.WriteService;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,17 +16,10 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class Main {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Bitte geben Sie eine Telefonnummer ein:");
-        String input = scanner.nextLine();
-
-        InputCheck inputCheck = new InputCheck();
-        if(inputCheck.isValidPhoneNumber(input)){
-            Parser parser = new Parser();
-            PhoneNumber number = parser.parseStringToPhoneNumberEx(input);
-            System.out.println(number.toString());
-        }
-
+        Controller controller = new Controller();
+        controller.openMenu();
     }
+
 }
