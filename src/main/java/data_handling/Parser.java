@@ -4,6 +4,9 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 import data.PhoneNumber;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * The Parser class is responsible for the parsing of a phonenumber.
  * <p>
@@ -23,9 +26,12 @@ public class Parser {
         String extensionCode = "";
         String countryShort = "";
 
+        extensionCode = getExtension(input) == null ? "": getExtension(input);
+        input =  removeExtension(input);
+
         PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
         try {
-            Phonenumber.PhoneNumber numberProto = phoneUtil.parse(input, "DE");
+            Phonenumber.PhoneNumber numberProto = phoneUtil.parseAndKeepRawInput(input, "DE");
             countryCode = String.valueOf(numberProto.getCountryCode());
             String nationalSignificantNumber = phoneUtil.getNationalSignificantNumber(numberProto);
             int areaCodeLength = phoneUtil.getLengthOfGeographicalAreaCode(numberProto);
@@ -37,7 +43,7 @@ public class Parser {
                 number = nationalSignificantNumber;
             }
 
-            extensionCode = numberProto.hasExtension() ? numberProto.getExtension() : "";
+            //extensionCode = numberProto.hasExtension() ? numberProto.getExtension() : "";
             countryShort = phoneUtil.getRegionCodeForNumber(numberProto);
 
         } catch (Exception e) {
@@ -46,4 +52,21 @@ public class Parser {
         return new PhoneNumber(original, countryShort, countryCode, areaCode, number, extensionCode);
     }
 
+
+    public String getExtension (String input) {
+        Pattern pattern = Pattern.compile("-\\d{1,3}");
+        Matcher matcher = pattern.matcher(input);
+        if (matcher.find()) {
+            String extension = matcher.group();
+            return extension.replace("-","");
+        } else {
+            return null;
+        }
+    }
+
+    public String removeExtension (String input) {
+        String pattern = "-\\d{3}";
+        String cleanedPhoneNumber = input.replaceAll(pattern, "");
+        return cleanedPhoneNumber;
+    }
 }
