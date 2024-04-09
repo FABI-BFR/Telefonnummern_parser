@@ -20,4 +20,42 @@ public class ParserTest {
         assertEquals("4511", phoneNumber.getNumberCode());
         assertEquals("33", phoneNumber.getExtensionCode()); // Assuming no extension in this case
     }
+
+    @Test
+    public void parseStringToPhoneNumberInvalid() {
+        Parser parser = new Parser();
+        String input = "invalid";
+
+        PhoneNumber phoneNumber = parser.parseStringToPhoneNumberEx(input);
+
+        assertNotNull(phoneNumber);
+        assertEquals("invalid", phoneNumber.getOriginal());
+        assertEquals("", phoneNumber.getCountryShort());
+        assertEquals("0049", phoneNumber.getCountryCode());
+        assertEquals("", phoneNumber.getAreaCode());
+        assertEquals("", phoneNumber.getNumberCode());
+        assertEquals("", phoneNumber.getExtensionCode());
+    }
+
+    @Test
+    public void getExtensionTestValid() {
+        Parser parser = new Parser();
+        String input = "+49 201 4511-33";
+
+        String extension = parser.getExtension(input);
+
+        assertNotNull(extension);
+        assertEquals("33", extension);
+    }
+
+    @Test
+    public void getExtensionTestInvalid() {
+        Parser parser = new Parser();
+        String input = "+49 201 4511-3333";
+
+        String extension = parser.getExtension(input);
+
+        assertEquals("", extension);
+    }
+
 }

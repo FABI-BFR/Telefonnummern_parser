@@ -58,7 +58,12 @@ public class Parser {
         Matcher matcher = pattern.matcher(input);
         if (matcher.find()) {
             String extension = matcher.group();
-            return extension.replace("-","");
+            extension.replace("-","");
+            if(extension.length()<=3) {
+                return extension;
+            }else {
+                return "";
+            }
         } else {
             return null;
         }
