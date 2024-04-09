@@ -1,5 +1,8 @@
 package controller;
 
+import data.PhoneNumber;
+import data_handling.Parser;
+
 import java.util.Scanner;
 
 /**
@@ -15,7 +18,9 @@ public class Main {
 
         InputCheck inputCheck = new InputCheck();
         if(inputCheck.isValidPhoneNumber(input)){
-            System.out.println(input);
+            Parser parser = new Parser();
+            PhoneNumber number = parser.parseStringToPhonenumber(input);
+            System.out.println(number.toString());
         }
 
     }
