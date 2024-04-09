@@ -5,31 +5,42 @@ package data;
  */
 public class PhoneNumber {
 
-    private final CountryCode countryCode;
-    private final AreaCode areaCode;
-    private final NumberCode numberCode;
-    private final ExtensionCode extensionCode;
+    private final String original;
+    private final String countryCode;
+    private final String areaCode;
+    private final String numberCode;
+    private final String extensionCode;
 
-    public PhoneNumber(CountryCode countryCode, AreaCode areaCode, NumberCode numberCode, ExtensionCode extensionCode) {
+    public PhoneNumber(String original, String countryCode, String areaCode, String numberCode, String extensionCode) {
+        this.original = original;
         this.countryCode = countryCode;
         this.areaCode = areaCode;
         this.numberCode = numberCode;
         this.extensionCode = extensionCode;
     }
 
-    public CountryCode getCountryCode() {
+    @Override
+    public String toString() {
+        return "PhoneNumber {countryCode='" + this.countryCode + "', areaCode='" + this.areaCode + "', numberCode='" + this.numberCode + "', extenstionCode='" + this.extensionCode + "'}";
+    }
+
+    public String getOriginal() {
+        return original;
+    }
+
+    public String getCountryCode() {
         return countryCode;
     }
 
-    public AreaCode getAreaCode() {
+    public String getAreaCode() {
         return areaCode;
     }
 
-    public NumberCode getNumberCode() {
+    public String getNumberCode() {
         return numberCode;
     }
 
-    public ExtensionCode getExtensionCode() {
+    public String getExtensionCode() {
         return extensionCode;
     }
 }
