@@ -52,7 +52,7 @@ public class Controller {
         String input = scanner.nextLine();
 
         InputCheck inputCheck = new InputCheck();
-        if(inputCheck.isValidPhoneNumber(input)){
+        if (inputCheck.isValidPhoneNumber(input)) {
             Parser parser = new Parser();
             PhoneNumber number = parser.parseStringToPhoneNumberEx(input);
             writer.setPhoneNumber(0, number);

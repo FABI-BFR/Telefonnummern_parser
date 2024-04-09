@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 /**
  * Controller nimmt eingabe entgegen und sorgt für die weitere Verarbeitung.
+ *
  * @author fe
  * @version 1.0
  */

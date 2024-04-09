@@ -23,7 +23,7 @@ public class PhoneNumber {
 
     @Override
     public String toString() {
-        return "PhoneNumber {countryShort = '" +this.countryShort+ "','countryCode='" + this.countryCode + "', areaCode='" + this.areaCode + "', numberCode='" + this.numberCode + "', extensionCode='" + this.extensionCode + "'}";
+        return "PhoneNumber {countryShort = '" + this.countryShort + "','countryCode='" + this.countryCode + "', areaCode='" + this.areaCode + "', numberCode='" + this.numberCode + "', extensionCode='" + this.extensionCode + "'}";
     }
 
     public String getOriginal() {
