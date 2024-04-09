@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 public class InputCheckTest {
 
     @Test
-    public void testIsValidPhoneNumber_ValidPhoneNumber_ReturnsTrue() {
+    public void inputCheckValidNumber() {
         InputCheck inputCheck = new InputCheck();
         String validPhoneNumber = "+49 0201 43433";
 
@@ -15,7 +15,7 @@ public class InputCheckTest {
     }
 
     @Test
-    public void testIsValidPhoneNumber_InvalidPhoneNumber_ReturnsFalse() {
+    public void inputCheckInvalidNumber() {
         InputCheck inputCheck = new InputCheck();
         String invalidPhoneNumber = "invalid";
 
