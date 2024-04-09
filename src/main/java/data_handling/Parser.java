@@ -23,7 +23,7 @@ public class Parser {
         String number = "";
         String extensionCode = "";
 
-        if(matcher.find()) {
+        if (matcher.find()) {
             countryCode = matcher.group(1);
             areaCode = matcher.group(2);
             number = matcher.group(3);
@@ -44,7 +44,7 @@ public class Parser {
 
         PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
         try {
-            Phonenumber.PhoneNumber numberProto = phoneUtil.parse(input, "");
+            Phonenumber.PhoneNumber numberProto = phoneUtil.parse(input, "DE");
             countryCode = String.valueOf(numberProto.getCountryCode());
             areaCode = phoneUtil.getNationalSignificantNumber(numberProto);
             number = String.valueOf(numberProto.getNationalNumber());
@@ -54,7 +54,6 @@ public class Parser {
             countryShort = country;
 
         } catch (Exception e) {
-
             System.err.println("NumberParseException: " + e.toString());
         }
         return new PhoneNumber(original, countryShort, countryCode, areaCode, number, extensionCode);
