@@ -62,7 +62,7 @@ public class Parser {
      * Extracts the extension of the phonenumber
      *
      * @param input phone number as string
-     * @return extension or empty string depending on whether or not there is a extension
+     * @return extension or empty string depending on whether there is a extension
      */
     public String getExtension (String input) {
         Pattern pattern = Pattern.compile("-\\d{1,3}");
@@ -70,7 +70,7 @@ public class Parser {
         if (matcher.find()) {
             String extension = matcher.group();
             String ret = extension.replace("-","");
-            if(ret.length()<=2) {
+            if(ret.length()<=3) {
                 return ret;
             }else {
                 return "";
